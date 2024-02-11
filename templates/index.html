@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+</head>
+<body>
+
+    <h1>Temperature Converter</h1>
+
+    <form id="temperatureForm">
+        <label for="celsiusInput">Enter Celsius temperature:</label>
+        <input type="text" id="celsiusInput" name="celsius" inputmode="numeric" pattern="[0-9]*" required>
+        <button type="button" onclick="convertTemperature()">Convert</button>
+    </form>
+    
+    <div id="result"></div>
+
+    <script>
+        function convertTemperature() {
+            var celsiusValue = document.getElementById("celsiusInput").value;
+
+            // Make a POST request to the Flask API
+            fetch('http://127.0.0.1:5000/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ 'celsius': celsiusValue })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("result").innerHTML = `
+                    <p>Celsius: ${data.celsius}</p>
+                    <p>Fahrenheit: ${data.fahrenheit}</p>
+                `;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById("result").innerHTML = '<p>Error converting temperature</p>';
+            });
+        }
+    </script>
+
+</body>
+</html>
