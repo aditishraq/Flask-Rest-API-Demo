@@ -5,7 +5,7 @@ This repository contains a simple Flask application that converts temperatures f
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
-- [Python](https://www.python.org/) 3.6 or later 
+- [Python](https://www.python.org/) 3.10 or later 
 
 - [Git](https://git-scm.com/)
 - [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
