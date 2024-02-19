@@ -21,14 +21,8 @@
         function convertTemperature() {
             var celsiusValue = document.getElementById("celsiusInput").value;
 
-            // Update the fetch URL to your Heroku app's URL
-            fetch('https://flask-rest-api-demo-53e6b86f31f4.herokuapp.com/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ 'celsius': celsiusValue })
-            })
+            // Assuming your Flask app is hosted at the same address and the /convert endpoint is set up correctly
+            fetch(`/convert?celsius=${celsiusValue}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -37,8 +31,8 @@
             })
             .then(data => {
                 document.getElementById("result").innerHTML = `
-                    <p>Celsius: ${data.celsius}</p>
-                    <p>Fahrenheit: ${data.fahrenheit}</p>
+                    <p>Celsius: ${data.celsius} °C</p>
+                    <p>Fahrenheit: ${data.fahrenheit} °F</p>
                 `;
             })
             .catch(error => {
