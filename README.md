@@ -93,3 +93,19 @@ If you face any error or want to check the logs:
    ```
 heroku logs --tail  
  ```
+
+## Running Unit Tests
+
+To ensure the Flask Temperature Converter app functions correctly, it's important to run unit tests. Follow these steps to execute the tests using the `test_app.py` script:
+
+1. **Ensure prerequisites are installed**: Make sure Python 3.10 or later is installed on your system, and all dependencies for the Flask app are satisfied.
+
+2. **Navigate to your project directory**: Open a terminal and change to the directory containing your Flask application and the `test_app.py` file.
+
+3. **Execute the test script**: Run the following command in the terminal:
+```
+python test_app.py
+ ```
+This command will run all unit tests defined in the `test_app.py` file.
+
+4. **Review the test results**: After the tests have finished, the terminal will display the results, showing which tests passed and which failed, if any.
